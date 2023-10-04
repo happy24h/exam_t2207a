@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Exam.Entities
 {
-    public class Employee
+    public class Department
     {
-
-        [Key]   
+        [Key]
         public int id { get; set; }
 
         [Required]
@@ -18,12 +17,13 @@ namespace Exam.Entities
         [StringLength(200)]
         public string code { get; set; }
 
-        public int department_id { get; set; }
-
-        [ForeignKey("department_id")]
-        public Department department { get; set; }
+        [Required]
+        [Column(TypeName = "text")]
+        public string location { get; set; }
 
         [Required]
-        public string rank { get; set; }
+        public int numberOfPersonals { get; set; }
+
+        public ICollection<Employee> employees { get; set; }
     }
 }

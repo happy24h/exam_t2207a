@@ -1,8 +1,8 @@
-﻿using exam.Models;
+﻿using Exam.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
-namespace exam.Controllers
+namespace Exam.Controllers
 {
     public class HomeController : Controller
     {

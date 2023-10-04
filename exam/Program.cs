@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// start connect db
+var connectionString = builder.Configuration.GetConnectionString("T2207A");
+builder.Services.AddDbContext<Exam.Entities.DataContext>(
+        options => options.UseSqlServer(connectionString)
+    );
+// end connect db
 
 var app = builder.Build();
 
